@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Live COde Editor</title>
+	<style type="text/css">
+		* {
+			padding: 0;
+			margin: 0;
+			box-sizing: border-box;
+		}
+		body {
+			height: 100vh;
+			display: flex;
+		}
+		.code-area {
+			display: flex;
+			flex-direction: column;
+			width: 50%;
+			border-right: 1px solid #000;
+		}
+		.code-area textarea {
+			width: 100%;
+			height: 33.33%;
+			font-size: 18px;
+			padding: 10px;
+			outline: none;
+			resize: none;
+		}
+		.preview-area {
+			width: 50%;
+		}
+		.preview-area iframe {
+			height: 100%;
+			width: 100%;
+			border: none;
+		}
+	</style>
+</head>
+<body>
+	<div class="code-area">
+		<textarea id="htmlCode" placeholder="Html codes" oninput="showPreview()" spellcheck="false"></textarea>
+		<textarea id="cssCode" placeholder="Css codes" oninput="showPreview()" spellcheck="false"></textarea>
+		<textarea id="jsCode" placeholder="Js codes" oninput="showPreview()" spellcheck="false"></textarea>
+	</div>
+	<div class="preview-area">
+		<iframe id="preview-window" src=""></iframe>
+	</div>
+
+	<script type="text/javascript">
+		function showPreview() {
+			var htmlCode = document.getElementById("htmlCode").value;
+			var cssCode = "<style>" + document.getElementById("cssCode").value + "</style>";
+			var jsCode = "<scri" + "pt>" + document.getElementById("jsCode").value + "</scri" + "pt>";
+
+			var frame = document.getElementById("preview-window").contentWindow.document;
+			frame.open();
+			frame.write(htmlCode + cssCode + jsCode);
+			frame.close();
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>box-reflect</title>
+	<meta charset="utf-8">
+	<style>
+		body {
+			min-height: 100vh;
+			display: flex;
+			justify-content: center;
+			padding: 40px 0;
+			background: #000;
+		}
+		div {
+			width: 100%;
+			display: flex;
+			justify-content: space-around;
+		}
+		div img {
+			transform-origin: center;
+			transform: perspective(800px) rotateY(20deg);
+			transition: .3s;
+			-webkit-box-reflect: below 1px linear-gradient(transparent, transparent, #0009);
+		}
+		div:hover img {
+			opacity: 0.4;
+		}
+		div img:hover {
+			opacity: 1;
+			transform: perspective(800px) rotateY(0deg);
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<img src="2.jpg" height="440" width="400">
+		<img src="#.jpg" height="440" width="400">
+		<img src="2.jpg" height="440" width="400">
+	</div>
+</body>
+</html>

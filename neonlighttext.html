@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Neon light glowing text</title>
+	<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap" rel="stylesheet">
+	<style>
+		body {
+			padding: 0;
+			margin: 0;
+			background: #000;
+			font-family: 'Quicksand', sans-serif;
+		}
+		.neon {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			margin: 0;
+			padding: 0 20px;
+			font-size: 6em;
+			color: #fff;
+			text-shadow: 0 0 20px #ff005b;
+		}
+		.neon::after {
+			content: attr(data-text);
+			position: absolute;
+			top: 0;
+			left: 0;
+			padding: 0 20px;
+			z-index: -1;
+			color: #ff005b;
+			filter: blur(15px);
+		}
+		.neon::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 100%;
+			width: 100%;
+			background: #fe3a80;
+			z-index: -2;
+			opacity: 0.5;
+			filter: blur(40px);
+		}
+	</style>
+</head>
+<body>
+	<h1 class="neon" data-text="[Neon_Light]">[Neon_Light]</h1>
+</body>
+</html>

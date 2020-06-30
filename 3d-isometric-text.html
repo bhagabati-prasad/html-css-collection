@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>#D isometric text</title>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+	<style>
+		* {
+			padding: 0;
+			margin: 0;
+			box-sizing: border-box;
+			font-family: 'Poppins', sans-serif;
+		}
+		body {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			min-height: 100vh;
+			background: #f1f1f1;
+			overflow-x: hidden;
+		}
+		#text {
+			position: relative;
+			color: #fff;
+			font-size: 14em;
+			font-weight: 700;
+			line-height: 0.9em;
+			letter-spacing: 2px;
+			text-align: center;
+			transform: rotate(-28deg) skew(25deg);
+		}
+		#text::before {
+			content: attr(data-text);
+			position: absolute;
+			top: 45px;
+			left: -90px;
+			color: rgba(0,0,0,0.3);
+			text-shadow: none;
+			filter: blur(8px);
+			z-index: -1;
+		}
+	</style>
+</head>
+<body>
+	<div id="text" data-text="CSS 3D Isometric Text">CSS 3D Isometric Text</div>
+
+	<script>
+		 var text = document.getElementById("text");
+		 var shadow = '';
+		 for(var i = 0; i < 30; i++) {
+		 	shadow += (shadow? ',':'')+ -i*1+'px '+ i*1+ 'px 0 #d9d9d9';
+		 }
+		 text.style.textShadow = shadow;
+	</script>
+</body>
+</html>
